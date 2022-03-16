@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopSolution.Data.EF;
 
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220313125617_AddImageProductTable")]
+    partial class AddImageProductTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +182,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("d4965cc8-fdab-433f-ae1d-79540827db5a"),
-                            ConcurrencyStamp = "ca0e103c-0c90-4409-a3e2-8ed294d45534",
+                            ConcurrencyStamp = "8a01aed7-fc41-43b2-862f-0419da4fd0f8",
                             Description = "Administrator Role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +259,7 @@ namespace eShopSolution.Data.Migrations
                         {
                             Id = new Guid("1cee3d50-87bb-48d5-a493-376829c581c9"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4200b3c9-f0c9-4eef-a770-3ed937200d77",
+                            ConcurrencyStamp = "746ffe9f-4688-46e2-ad57-61c3d50bfffc",
                             Dob = new DateTime(2000, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "danglong136i@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +268,7 @@ namespace eShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "danglong136i@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOOa644Siv+HkXpzh8MWlBEpwqboeVJ1m1jUGh5iYtUQ/7JS6ce/LQiCd3bWIStQQg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJClvxvSXId8uVoCfQQTBINcVzhhEHsSr6y9QItK8DtofxJ8gqpzO026oJC4dexbJQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -611,7 +613,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 3, 15, 14, 43, 34, 188, DateTimeKind.Local).AddTicks(853),
+                            DateCreated = new DateTime(2022, 3, 13, 19, 56, 16, 418, DateTimeKind.Local).AddTicks(1764),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -635,8 +637,8 @@ namespace eShopSolution.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
+                    b.Property<int>("FileSize")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
@@ -899,7 +901,7 @@ namespace eShopSolution.Data.Migrations
             modelBuilder.Entity("eShopSolution.Data.Entities.ProductImage", b =>
                 {
                     b.HasOne("eShopSolution.Data.Entities.Product", "Product")
-                        .WithMany("ProductImages")
+                        .WithMany("ProductImage")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
