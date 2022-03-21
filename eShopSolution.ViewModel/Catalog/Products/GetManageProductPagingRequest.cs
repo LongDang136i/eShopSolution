@@ -2,7 +2,7 @@
 using eShopSolution.ViewModel.Common;
 using System.Collections.Generic;
 
-namespace eShopSolution.ViewModel.Catalog.Products
+namespace eShopSolution.ViewModel.Catalog.ProductImages
 {
     public class GetManageProductPagingRequest :PagingRequestBase
     {
