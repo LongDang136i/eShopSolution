@@ -39,6 +39,11 @@ namespace eShopSolution.AdminApp
 
             services.AddControllersWithViews()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             IMvcBuilder builder = services.AddRazorPages();
 
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENt");
@@ -71,7 +76,7 @@ namespace eShopSolution.AdminApp
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
