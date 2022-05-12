@@ -35,12 +35,12 @@ namespace eShopSolution.Application.System.Users
         public async Task<ApiResult<string>> Authencate(LoginRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user == null) return null;
+            if (user == null) return new ApiErrorResult<string>("Tài khoản không tồn tại");
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
-                return new ApiErrorResult<string>("Đăng nhập không đúng");
+                return new ApiErrorResult<string>("Sai mật khẩu");
             }
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new[]
@@ -123,7 +123,10 @@ namespace eShopSolution.Application.System.Users
             if (!string.IsNullOrEmpty(request.Keyword))
             {
                 query = query.Where(x => x.UserName.Contains(request.Keyword)
-                  || x.PhoneNumber.Contains(request.Keyword));
+                || x.PhoneNumber.Contains(request.Keyword)
+                || x.FisrtName.Contains(request.Keyword)
+                || x.LastName.Contains(request.Keyword)
+                || x.Email.Contains(request.Keyword));
             }
 
             //3.Paging
