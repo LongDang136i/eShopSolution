@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eShopSolution.ViewModel.System.Users
 {
-    public class UserVm
+    public class UserUpdateRequest
     {
         public Guid Id { get; set; }
 
@@ -15,17 +15,14 @@ namespace eShopSolution.ViewModel.System.Users
         [Display(Name = "Họ")]
         public string LastName { get; set; }
 
-        [Display(Name = "SĐT")]
-        public string PhoneNumber { get; set; }
-
-        [Display(Name = "Tài khoản")]
-        public string UserName { get; set; }
-
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-
         [Display(Name = "Ngày sinh")]
         [DataType(DataType.Date)]
         public DateTime Dob { get; set; }
+
+        [Display(Name = "Hộp thư")]
+        public string Email { get; set; }
+
+        [Display(Name = "Số điện thoại")]
+        public string PhoneNumber { get; set; }
     }
 }
