@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.AdminApp.Services
 {
-    public class RoleApiClient : IRoleApiClient
+    public class RoleApiClient : BaseApiClient, IRoleApiClient
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
@@ -20,14 +20,12 @@ namespace eShopSolution.AdminApp.Services
         public RoleApiClient(IHttpClientFactory httpClientFactory,
                    IHttpContextAccessor httpContextAccessor,
                     IConfiguration configuration)
-        {
-            _configuration = configuration;
-            _httpContextAccessor = httpContextAccessor;
-            _httpClientFactory = httpClientFactory;
-        }
+            : base(httpClientFactory, httpContextAccessor, configuration) { }
 
         public async Task<ApiResult<List<RoleVm>>> GetAll()
         {
+            //return await GetAsync<ApiResult<List<RoleVm>>>("/api/roles");
+
             var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri(_configuration["BaseAddress"]);
