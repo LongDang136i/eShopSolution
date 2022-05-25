@@ -11,16 +11,18 @@ using System.Threading.Tasks;
 
 namespace eShopSolution.AdminApp.Services
 {
-    public class RoleApiClient : BaseApiClient, IRoleApiClient
+    public class RoleApiClient : IRoleApiClient
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RoleApiClient(IHttpClientFactory httpClientFactory,
-                   IHttpContextAccessor httpContextAccessor,
-                    IConfiguration configuration)
-            : base(httpClientFactory, httpContextAccessor, configuration) { }
+        public RoleApiClient(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
+            _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
+        }
 
         public async Task<ApiResult<List<RoleVm>>> GetAll()
         {
