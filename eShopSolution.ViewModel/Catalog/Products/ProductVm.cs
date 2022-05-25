@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.ViewModel.Catalog.ProductImages
+namespace eShopSolution.ViewModel.Catalog.Products
 {
-    public class ProductViewModel
+    public class ProductVm
     {
         public int Id { set; get; }
         public decimal Price { set; get; }

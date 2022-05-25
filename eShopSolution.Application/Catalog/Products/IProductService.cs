@@ -1,4 +1,5 @@
 ﻿using eShopSolution.ViewModel.Catalog.ProductImages;
+using eShopSolution.ViewModel.Catalog.Products;
 using eShopSolution.ViewModel.Common;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace eShopSolution.Application.Catalog.Products
 {
     public interface IProductService
     {
-        Task<ProductViewModel> GetById(int productId, string languageId);
+        Task<ProductVm> GetById(int productId, string languageId);
 
         Task<int> Create(ProductCreateRequest request);
 
@@ -22,7 +23,7 @@ namespace eShopSolution.Application.Catalog.Products
 
         Task AddViewCount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllPaging(GetManageProductPagingRequest request);
 
         Task<int> AddImage(int productId, ProductImageCreateRequest request);
 
@@ -34,6 +35,6 @@ namespace eShopSolution.Application.Catalog.Products
 
         Task<List<ProductImageViewModel>> GetListImage(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPulbicProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPulbicProductPagingRequest request);
     }
 }
