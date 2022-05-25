@@ -1,5 +1,4 @@
 using eShopSolution.Application.Catalog.Products;
-using eShopSolution.Application.Catalog.Products.Manage;
 using eShopSolution.Application.Common;
 using eShopSolution.Application.System.Languages;
 using eShopSolution.Application.System.Roles;
