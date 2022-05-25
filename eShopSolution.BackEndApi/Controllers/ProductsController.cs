@@ -49,6 +49,7 @@ namespace eShopSolution.BackEndApi.Controllers
         }
 
         [HttpPost]
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
@@ -57,9 +58,8 @@ namespace eShopSolution.BackEndApi.Controllers
             }
             var productId = await _productService.Create(request);
             if (productId == 0)
-            {
                 return BadRequest();
-            }
+
             var product = await _productService.GetById(productId, request.LanguageId);
 
             return CreatedAtAction(nameof(GetById), new { id = productId }, product);
@@ -154,7 +154,7 @@ namespace eShopSolution.BackEndApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await _productService.DeleteImage(imageId);
+            var result = await _productService.RemoveImage(imageId);
             if (result == 0)
             {
                 return BadRequest();
