@@ -18,6 +18,7 @@ namespace eShopSolution.Data.Entities
 
         public List<OrderDetail> OrderDetails { get; set; }
 
+        public bool? IsFeature { set; get; }
         public List<Cart> Carts { get; set; }
 
         public List<ProductTranslation> ProductTranslations { get; set; }

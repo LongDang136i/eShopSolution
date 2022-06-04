@@ -48,6 +48,24 @@ namespace eShopSolution.BackEndApi.Controllers
             return Ok(product);
         }
 
+        [AllowAnonymous]
+        [HttpGet("featured/{languageId}/{take}")]
+        public async Task<IActionResult> GetFeaturedProducts(string languageId, int take)
+        {
+            var products = await _productService.GetFeaturedProducts(languageId, take);
+
+            return Ok(products);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("latest/{languageId}/{take}")]
+        public async Task<IActionResult> GetLatestProducts(string languageId, int take)
+        {
+            var products = await _productService.GetLatestProducts(languageId, take);
+
+            return Ok(products);
+        }
+
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)

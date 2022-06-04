@@ -16,5 +16,11 @@ namespace EShopSolution.Utilities.Constants
 
             public const string BaseAddress = "BaseAddress";
         }
+
+        public class ProductSettings
+        {
+            public const int NumberOfFeaturedProducts = 8;
+            public const int NumberOfLatestProducts = 12;
+        }
     }
 }
