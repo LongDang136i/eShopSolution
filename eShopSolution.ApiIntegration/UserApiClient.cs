@@ -11,7 +11,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntergration
+namespace eShopSolution.ApiIntegration
 {
     public class UserApiClient : IUserApiClient
     {

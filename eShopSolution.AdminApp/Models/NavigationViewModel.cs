@@ -5,8 +5,10 @@ namespace eShopSolution.AdminApp.Models
 {
     public class NavigationViewModel
     {
-        public List<LanguageVm> Language { get; set; }
+        public List<LanguageVm> Languages { get; set; }
 
         public string CurrentLanguageId { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

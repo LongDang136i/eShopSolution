@@ -9,7 +9,7 @@ using eShopSolution.WebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
 using LazZiya.ExpressLocalization;
-using eShopSolution.ApiIntergration;
+using eShopSolution.ApiIntegration;
 using System.Globalization;
 using EShopSolution.Utilities.Constants;
 

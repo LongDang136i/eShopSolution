@@ -1,8 +1,10 @@
 ﻿using eShopSolution.AdminApp.Models;
-using eShopSolution.ApiIntergration;
+using eShopSolution.ApiIntegration;
 using EShopSolution.Utilities.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace eShopSolution.AdminApp.Controllers.Components
@@ -24,7 +26,7 @@ namespace eShopSolution.AdminApp.Controllers.Components
                 CurrentLanguageId = HttpContext
                 .Session
                 .GetString(SystemConstants.AppSettings.DefaultLanguageId),
-                Language = languages.ResultObj
+                Languages = languages.ResultObj
             };
 
             return View("Default", navigationVm);

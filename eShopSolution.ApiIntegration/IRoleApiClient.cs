@@ -3,7 +3,7 @@ using eShopSolution.ViewModel.System.Roles;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntergration
+namespace eShopSolution.ApiIntegration
 {
     public interface IRoleApiClient
     {

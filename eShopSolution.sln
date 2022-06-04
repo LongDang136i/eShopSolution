@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Host", "3.Host", "{C4F6C7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopSolution.AdminApp", "eShopSolution.AdminApp\eShopSolution.AdminApp.csproj", "{44ED50C6-6D68-40EF-8EAA-75F12EEA6C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopSolution.ApiIntergration", "eShopSolution.ApiIntergration\eShopSolution.ApiIntergration.csproj", "{2428E619-29F7-4C0E-9ABA-545FF9B5499C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopSolution.ApiIntegration", "eShopSolution.ApiIntegration\eShopSolution.ApiIntegration.csproj", "{AFC7F914-59AF-4430-B536-DF3B65572125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +67,10 @@ Global
 		{44ED50C6-6D68-40EF-8EAA-75F12EEA6C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44ED50C6-6D68-40EF-8EAA-75F12EEA6C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44ED50C6-6D68-40EF-8EAA-75F12EEA6C40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2428E619-29F7-4C0E-9ABA-545FF9B5499C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2428E619-29F7-4C0E-9ABA-545FF9B5499C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2428E619-29F7-4C0E-9ABA-545FF9B5499C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2428E619-29F7-4C0E-9ABA-545FF9B5499C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC7F914-59AF-4430-B536-DF3B65572125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC7F914-59AF-4430-B536-DF3B65572125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC7F914-59AF-4430-B536-DF3B65572125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC7F914-59AF-4430-B536-DF3B65572125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,7 +83,7 @@ Global
 		{3C721AE0-1963-4A48-8478-C8E55DFA4464} = {37D24514-74E0-4487-90F4-847C647BADF7}
 		{EA45EF16-FF31-4243-A385-A88E8CD93ED6} = {C4F6C79E-4A49-4A3E-85C1-21C98D93EEAE}
 		{44ED50C6-6D68-40EF-8EAA-75F12EEA6C40} = {C4F6C79E-4A49-4A3E-85C1-21C98D93EEAE}
-		{2428E619-29F7-4C0E-9ABA-545FF9B5499C} = {C4F6C79E-4A49-4A3E-85C1-21C98D93EEAE}
+		{AFC7F914-59AF-4430-B536-DF3B65572125} = {C4F6C79E-4A49-4A3E-85C1-21C98D93EEAE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE6DCA36-5079-4285-8DF5-8F8DC5B50570}

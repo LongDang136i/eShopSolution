@@ -1,4 +1,4 @@
-﻿using eShopSolution.ApiIntergration;
+﻿using eShopSolution.ApiIntegration;
 using eShopSolution.ViewModel.Common;
 using eShopSolution.ViewModel.System.Languages;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntergration
+namespace eShopSolution.ApiIntegration
 {
     public class LanguageApiClient : BaseApiClient, ILanguageApiClient
     {

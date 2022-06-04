@@ -3,7 +3,7 @@ using eShopSolution.ViewModel.Common;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntergration
+namespace eShopSolution.ApiIntegration
 {
     public interface IProductApiClient
     {
@@ -11,9 +11,11 @@ namespace eShopSolution.ApiIntergration
 
         Task<bool> CreateProduct(ProductCreateRequest request);
 
+        Task<bool> UpdateProduct(ProductUpdateRequest request);
+
         Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
 
-        Task<ProductVm> GetById(int id, string languagedId);
+        Task<ProductVm> GetById(int id, string languageId);
 
         Task<List<ProductVm>> GetFeaturedProducts(string languageId, int take);
 

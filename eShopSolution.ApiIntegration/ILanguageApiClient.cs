@@ -3,7 +3,7 @@ using eShopSolution.ViewModel.System.Languages;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntergration
+namespace eShopSolution.ApiIntegration
 {
     public interface ILanguageApiClient
     {

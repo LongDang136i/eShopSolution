@@ -1,4 +1,4 @@
-﻿using eShopSolution.ApiIntergration;
+﻿using eShopSolution.ApiIntegration;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.Threading.Tasks;
