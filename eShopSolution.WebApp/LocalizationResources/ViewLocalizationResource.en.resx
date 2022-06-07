@@ -150,7 +150,7 @@
     <comment>Layouts</comment>
   </data>
   <data name="productUrl" xml:space="preserve">
-    <value>products</value>
+    <value>product</value>
     <comment>/Home/Index</comment>
   </data>
   <data name="Specials Offer" xml:space="preserve">
