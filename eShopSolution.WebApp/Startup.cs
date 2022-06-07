@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using eShopSolution.ApiIntegration;
 using eShopSolution.WebApp.LocalizationResources;
 using LazZiya.ExpressLocalization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,6 +31,11 @@ namespace eShopSolution.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+            {
+                option.LoginPath = "/Account/Login";
+                option.AccessDeniedPath = "/Account/Forbiden/";
+            });
             var cultures = new[]
            {
                 new CultureInfo("en"),
@@ -69,6 +75,7 @@ namespace eShopSolution.WebApp
             {
                 option.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+            services.AddTransient<IUserApiClient, UserApiClient>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IProductApiClient, ProductApiClient>();
             services.AddTransient<ISlideApiClient, SlideApiClient>();
@@ -90,7 +97,7 @@ namespace eShopSolution.WebApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -102,7 +109,7 @@ namespace eShopSolution.WebApp
             {
                 endpoints.MapControllerRoute(
                     name: "Product By Category En",
-                    pattern: "{culture}/categories/{id}", new
+                    pattern: "{culture}/category/{id}", new
                     {
                         controller = "Product",
                         action = "Category"
@@ -118,7 +125,7 @@ namespace eShopSolution.WebApp
 
                 endpoints.MapControllerRoute(
                     name: "Product Detail En",
-                    pattern: "{culture}/products/{id}", new
+                    pattern: "{culture}/product/{id}", new
                     {
                         controller = "Product",
                         action = "Detail"
