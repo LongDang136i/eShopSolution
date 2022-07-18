@@ -1,5 +1,6 @@
-﻿using eShopSolution.AdminApp.Services;
+﻿using eShopSolution.ApiIntegration;
 using eShopSolution.ViewModel.System.Users;
+using EShopSolution.Utilities.Constants;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +40,11 @@ namespace eShopSolution.AdminApp.Controllers
                 return View(ModelState);
 
             var result = await _userApiClient.Authenticate(request);
-
+            if (result.ResultObj == null)
+            {
+                ModelState.AddModelError("", result.Message);
+                return View();
+            }
             var userPrincipal = this.ValidateToken(result.ResultObj);
 
             var authProperties = new AuthenticationProperties
@@ -47,7 +52,10 @@ namespace eShopSolution.AdminApp.Controllers
                 ExpiresUtc = System.DateTimeOffset.UtcNow.AddMinutes(10),
                 IsPersistent = true,
             };
-            HttpContext.Session.SetString("Token", result.ResultObj);
+            HttpContext.Session.SetString(SystemConstants.AppSettings
+                .DefaultLanguageId, _configuration[SystemConstants.AppSettings.DefaultLanguageId]);
+
+            HttpContext.Session.SetString(SystemConstants.AppSettings.Token, result.ResultObj);
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 userPrincipal,

@@ -1,4 +1,5 @@
 ﻿using eShopSolution.ViewModel.Catalog.ProductImages;
+using eShopSolution.ViewModel.Catalog.Products;
 using eShopSolution.ViewModel.Common;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -8,32 +9,38 @@ namespace eShopSolution.Application.Catalog.Products
 {
     public interface IProductService
     {
-        Task<ProductViewModel> GetById(int productId, string languageId);
-
         Task<int> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
 
         Task<int> Delete(int productId);
 
+        Task<ProductVm> GetById(int productId, string languageId);
+
         Task<bool> UpdatePrice(int productId, decimal newPrice);
 
-        Task<bool> UpdateStock(int productId, int addQuantity);
+        Task<bool> UpdateStock(int productId, int addedQuantity);
 
-        Task AddViewCount(int productId);
+        Task AddViewcount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllPaging(GetManageProductPagingRequest request);
 
         Task<int> AddImage(int productId, ProductImageCreateRequest request);
 
-        Task<int> DeleteImage(int imageId);
+        Task<int> RemoveImage(int imageId);
 
         Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
 
         Task<ProductImageViewModel> GetImageById(int imageId);
 
-        Task<List<ProductImageViewModel>> GetListImage(int productId);
+        Task<List<ProductImageViewModel>> GetListImages(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPulbicProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
+
+        Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
+
+        Task<List<ProductVm>> GetFeaturedProducts(string languageId, int take);
+
+        Task<List<ProductVm>> GetLatestProducts(string languageId, int take);
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.ViewModel.Catalog.ProductImages
+namespace eShopSolution.ViewModel.Catalog.Products
 {
     public class ProductUpdateRequest
     {
@@ -13,7 +13,7 @@ namespace eShopSolution.ViewModel.Catalog.ProductImages
         public string Details { set; get; }
         public string SeoDescription { set; get; }
         public string SeoTitle { set; get; }
-
+        public bool? IsFeature { set; get; }
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
 
